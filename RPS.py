@@ -8,3 +8,38 @@ def player(prev_play, opponent_history=[]):
         guess = opponent_history[-2]
 
     return guess
+
+def beat_quincy(prev_play, opponent_history=[]):
+    opponent_history.append(prev_play)
+    choices = ["P", "P", "S", "S", "R"]
+    
+    guess = choices[len(opponent_history) % len(choices)]
+    
+    return guess
+
+def beat_mrugesh(prev_play, opponent_history=[]):
+    opponent_history.append(prev_play)
+    choices = ["R", "S", "P"]
+    
+    key = (len(opponent_history) - 1) // 5 % 3
+    guess = choices[key]
+    
+    return guess
+
+def beat_kris(prev_play, opponent_history=[]):
+    opponent_history.append(prev_play)
+    choices = ["P", "R", "S"]
+    
+    key = (len(opponent_history) - 1) % 3
+    guess = choices[key]
+    
+    return guess
+
+def beat_abbey(prev_play, opponent_history=[]):
+    opponent_history.append(prev_play)
+    choices = ["P", "R", "S"]
+    
+    key = (len(opponent_history) - 1) % 3
+    guess = choices[key]
+    
+    return guess
