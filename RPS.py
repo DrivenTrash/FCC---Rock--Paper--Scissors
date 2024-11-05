@@ -1,4 +1,5 @@
 # The example function below keeps track of the opponent's history and plays whatever the opponent played two plays ago. It is not a very good player so you will need to change the code to pass the challenge.
+from RPS_game import abbey
 
 def player(prev_play, opponent_history=[]):
     opponent_history.append(prev_play)
@@ -35,11 +36,10 @@ def beat_kris(prev_play, opponent_history=[]):
     
     return guess
 
-def beat_abbey(prev_play, opponent_history=[]):
-    opponent_history.append(prev_play)
-    choices = ["P", "R", "S"]
+def beat_abbey(prev_play, opponent_history=[]): 
+    own_play = {'': '', 'P': 'S', 'R': 'P', 'S': 'R'}
+    result = abbey(own_play[prev_play])
+    guess = {'P': 'S', 'R': 'P', 'S': 'R'}
     
-    key = (len(opponent_history) - 1) % 3
-    guess = choices[key]
-    
-    return guess
+    print(result)
+    return guess[result]
